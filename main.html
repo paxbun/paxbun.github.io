@@ -27,7 +27,8 @@
             "하코야",
         ];
         const now = new Date();
-        const today = `${now.getFullYear()}-${now.getMonth()}-${now.getDate()}`
+        const meal = now.getHours() < 15 ? "점심" : "저녁";
+        const today = `${now.getFullYear()}-${now.getMonth()}-${now.getDate()}-${meal}`
     </script>
 </head>
 
