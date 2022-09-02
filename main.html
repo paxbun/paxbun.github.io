@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘의 음식</title>
+    <script>
+        String.prototype.hashCode = function () {
+            var hash = 0, i, chr;
+            if (this.length === 0) return hash;
+            for (i = 0; i < this.length; i++) {
+                chr = this.charCodeAt(i);
+                hash = ((hash << 5) - hash) + chr;
+                hash |= 0; // Convert to 32bit integer
+            }
+            return hash;
+        };
+
+        const restaurants = [
+            "송송카레",
+            "청담소반",
+            "신촌설렁탕",
+            "디엔",
+            "만리향",
+            "하코야",
+        ];
+        const now = new Date();
+        const today = `${now.getFullYear()}-${now.getMonth()}-${now.getDate()}`
+    </script>
+</head>
+
+<body>
+    <script>document.write(restaurants[today.hashCode() % restaurants.length])</script>
+</body>
+
+</html>
