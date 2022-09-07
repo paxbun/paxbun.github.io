@@ -25,15 +25,23 @@
             "디엔",
             "만리향",
             "하코야",
+            "가츠가게",
+            "일본식돈가쓰",
+            "일미집",
         ];
         const now = new Date();
         const meal = now.getHours() < 15 ? "점심" : "저녁";
         const today = `${now.getFullYear()}-${now.getMonth()}-${now.getDate()}-${meal}`
+        let idx = today.hashCode() % restaurants.length;
+        if (idx < 0) {
+            idx += restaurants.length;
+        }
+        const restaurant = restaurants[idx];
     </script>
 </head>
 
 <body>
-    <script>document.write(restaurants[today.hashCode() % restaurants.length])</script>
+    <script>document.write(restaurant)</script>
 </body>
 
 </html>
